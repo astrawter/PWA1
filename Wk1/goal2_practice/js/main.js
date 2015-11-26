@@ -1,7 +1,7 @@
 /*
-     Name:
-     Date:
-     Class & Section:  PWA1-####
+     Name: Alexandria Strawter
+     Date: 11/26/15
+     Class & Section:  PWA1-1115
      Comments: "Goal 2: JavaScript Practice"
  */
 
@@ -20,12 +20,12 @@
 	===============================================
 	RECAP:  Data Types
 	-----------------------------------------------
-     "string"			              string literal
+     "string"			      string literal
      1, 3.14, 10e10			  number literal
      TRUE / FALSE			  boolean literal
-     ["a", "b", "c"]				  array literal
+     ["a", "b", "c"]		  array literal
      function(arg, arg2){}	  function literal
-     undefined					  undefined
+     undefined				  undefined
 */
 	
 
@@ -75,7 +75,6 @@ console.log('------Recap Conditionals ----------');
 		};
   		================================================================
   	*/
-
 
 
 	/* 	==============================================================
@@ -159,38 +158,44 @@ var abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 // Use charAt() to console.log the 'v' in str1.
 
+console.log(str1.charAt(4));  
 
 // Use indexOf() to console.log the index of 'm' in str2.
-
+console.log(str2.indexOf("m")); 
 
 // Use lastIndexOf() to console.log the last 'a' in str1.
-
+console.log(str1.lastIndexOf("a")); 
 
 // Use length to console.log the length in str1.
 
+console.log(str1.length); 
 
 // Use split() to console.log an array of the ABC's using the abc variable.
 // EX: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
+console.log(abc.split("")); 
 
 //STUDENT ACTIVITY 1:
 // Use substr() to console.log 'JavaScript!' from str1.
-
+console.log(str1.substr(7, 11)); 
 
 // Use concat() to console.log 'I love JavaScript ! JavaScript loves me!' with str1 and str2.
 
-
+console.log(str1.concat(str2)); 
 
 //STUDENT ACTIVITY 2:
 // Use substring() to console.log 'JavaScript' from str2.
-
+console.log(str2.substring(0,10)); 
 
 //STUDENT ACTIVITY 3:
 // 1. Use toLowerCase() to console.log the str1 all in lowercase letters.
+console.log(str1.toLowerCase());    
 // 2. Use toUpperCase() to console.log the str1 all in uppercase letters.
 
+console.log(str1.toUpperCase()); 
 
-
+//Use toString() to console log the type of str1
+console.log(typeof str1.toString());
 /*
 	===============================================
 	MORE:  Numbers
@@ -199,18 +204,21 @@ var abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 console.log('------ MORE Numbers ----------');
 
+var num = 457896;
+var dec = 33.123456;
+    
 // Use toExponential() console.log num in exponential notation with two decimals.
-
+console.log(num.toExponential(2)); 
 
 // Use toPrecision() console.log dec as four numbers.
-
+console.log(dec.toPrecision(4)); 
 
 //STUDENT ACTIVITY 4:
 //What method would you use to console.log the variable dec with two decimals.
-
+console.log(dec.toFixed(2)); 
 
 // Use toString() to console.log the type of num.
-
+console.log(typeof num.toString());
 
 
 /*
@@ -234,8 +242,15 @@ console.log('------ MORE Numbers ----------');
 
 console.log('------ MORE Booleans ----------');
 
+    var num = 9 * "k";
+    console.log(num);
+    
+    if(num){
+        console.log("It's true, the value is ", num);
+    }else{
+        console.log("It's false, the value is ", num);
+    };
 
-	
 /*
 	===============================================
 	MORE:  Arrays
@@ -252,33 +267,35 @@ var arr3 = ['apple', 'orange', 50393, 7.324];
 //Returns the first (least) index of an element within the array equal
 //to the specified value, or -1 if none is found.
 
-
+console.log();
 // join()
 // Joins all elements of an array into a string.
-
+console.log();
 
 // pop()
 // Removes the last element from an array and returns that element
 // shift() removes the first element from an array.
-
+console.log();
+console.log();
 
 // push()
 // Adds one or more elements to the end of an array and returns the new
 //   length of the array
 // unshift() - Adds one or more elements to the front of an array.
-
+console.log();
+console.log();
 
 // reverse()
 // Reverses the order of the elements of an array
-
+console.log();
 
 // splice()
 // Adds and/or removes elements from an array.
-
+console.log();
 
 // forEach()
 // Calls a function for each element in the array.
-
+console.log();
 
 
 
@@ -302,7 +319,7 @@ var arr3 = ['apple', 'orange', 50393, 7.324];
     var secondQtr = ["Apr", "May", "Jun"];
     var secondHalfYr = ["Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
     var combined;
-
+console.log();
 
 /*
 	===============================================
@@ -348,7 +365,7 @@ console.log('------ MORE Conditionals - Switch ----------');
 			if age 18 then console.log "adult"
 			if no age then console.log "No answer"
 ********************************************/
-
+console.log();
 
 
 /*
@@ -450,7 +467,7 @@ console.log('------For Loop ----------');
 		- in the example below, the last index of the array would be 4 
 			- the  .length property returns the count, which would be 5	
 	*/	
-
+console.log();
 
 	/* 
 		using the for() loop with .length
@@ -470,7 +487,7 @@ console.log('------For Loop ----------');
 		- depending on the size of an array, it can be more efficient to 
 			save the array length in a variable, inside the first statement
 	*/
-
+console.log();
 
 	/*
 		BREAK...
@@ -480,7 +497,7 @@ console.log('------For Loop ----------');
 			break point, and perform no more iterations
 	*/
 
-
+console.log();
 
 	/*
 		CONTINUE...
@@ -502,7 +519,7 @@ console.log('------For Loop ----------');
 		b.  create a for loop using the faster method (4 parameters)
 			- in the loop just console.log the values
 ********************************************/
-
+console.log();
 
 
 /*******************************************
@@ -530,3 +547,5 @@ console.log('------For Loop ----------');
 
 
 })();
+
+console.log();
