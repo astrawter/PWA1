@@ -63,5 +63,11 @@ function fight(){
    };
 };
     
+//Checks for a winner after every round 
+function winnerCheck(){
+    
+    //default result is no winner
+    var result = "no winner";
+    
 //end self executing function 
 })();
