@@ -23,6 +23,9 @@ var playerTwoDamage = 20;
 var round = 0;
 
 
-
+/*fight function loops through each round and reduces players health based on a randomly generated number*/
+function fight(){
+    alert(playerOneName + ":" + playerOneHealth + " *START* " + playerTwoName + ":" +     playerTwoHealth); 
+    
 //end self executing function 
 })();
