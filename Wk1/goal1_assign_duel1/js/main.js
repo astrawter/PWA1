@@ -26,6 +26,7 @@ var round = 0;
 /*fight function loops through each round and reduces players health based on a randomly generated number*/
 function fight(){
     alert(playerOneName + ":" + playerOneHealth + " *START* " + playerTwoName + ":" +     playerTwoHealth); 
+    
         //loops the function until 10 rounds
     for (var i = 0; i < 10; i++){ 
         
@@ -40,5 +41,27 @@ function fight(){
         //subtract random damage from players health
         playerOneHealth -= f1;
         playerTwoHealth -= f2;
+        
+    //pulls results from the winnerCheck function
+   var results = winnerCheck();
+
+   if (results === "no winner"){
+       
+       //round is incremented
+       round++;
+       
+       //alerts player the score after each round
+       alert(playerOneName + ":" + playerOneHealth + " *ROUND " + round + " OVER* " +  playerTwoName + ":" +     playerTwoHealth);  
+   }else{
+       
+       //if there is a winner or tie displays results
+       alert(results);
+       
+       //breaks out of the FOR loop to declare winner
+       break;  
+     };
+   };
+};
+    
 //end self executing function 
 })();
