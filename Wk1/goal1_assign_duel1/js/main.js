@@ -69,5 +69,23 @@ function winnerCheck(){
     //default result is no winner
     var result = "no winner";
     
+    //if both players health becomes 0 or less there is a TIE
+    if (playerOneHealth < 1 && playerTwoHealth <1 ){
+        result = "You Both Die";
+        
+    //if one player's health reaches 0 or less they are the  LOSER  
+    }else if(playerOneHealth<1){
+        result = playerTwoName + " WINS!!!"
+    }else if(playerTwoHealth<1){
+        result = playerOneName + " WINS!!!"
+    };
+    
+    //returns results to fight function
+    return result;
+};
+
+// Begins program
+fight();
+    
 //end self executing function 
 })();
