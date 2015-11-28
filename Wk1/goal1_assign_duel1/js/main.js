@@ -26,6 +26,19 @@ var round = 0;
 /*fight function loops through each round and reduces players health based on a randomly generated number*/
 function fight(){
     alert(playerOneName + ":" + playerOneHealth + " *START* " + playerTwoName + ":" +     playerTwoHealth); 
-    
+        //loops the function until 10 rounds
+    for (var i = 0; i < 10; i++){ 
+        
+        //formula to get a min damage for player 1 and player 2
+        var minDamage1 = playerOneDamage * .5;
+        var minDamage2 = playerTwoDamage * .5;
+        
+        //formula to get a random number damage for player 1 and player 2
+        var f1 = Math.floor(Math.random()*(playerOneDamage-minDamage1) + minDamage1);
+        var f2 = Math.floor(Math.random()*(playerTwoDamage-minDamage2) + minDamage2);
+        
+        //subtract random damage from players health
+        playerOneHealth -= f1;
+        playerTwoHealth -= f2;
 //end self executing function 
 })();
