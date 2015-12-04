@@ -38,7 +38,7 @@ function fight(){
         
         //subtract random damage from players health
         playerOne[1] -= f1;
-        playerOne[1] -= f2;
+        playerTwo[1] -= f2;
         
     //pulls results from the winnerCheck function
    var results = winnerCheck();
@@ -49,7 +49,7 @@ function fight(){
        round++;
        
        //alerts player the score after each round
-       alert(playerOneName + ":" + playerOneHealth + " *ROUND " + round + " OVER* " +  playerTwoName + ":" +     playerTwoHealth);  
+       alert(playerOne[0] + ":" + playerOne[1] + " *ROUND " + round + " OVER* " +  playerTwo[0] + ":" +     playerTwo[1]);  
    }else{
        
        //if there is a winner or tie displays results
@@ -68,14 +68,14 @@ function winnerCheck(){
     var result = "no winner";
     
     //if both players health becomes 0 or less there is a TIE
-    if (playerOneHealth < 1 && playerTwoHealth <1 ){
+    if (playerOne[1] < 1 && playerTwo[1] <1 ){
         result = "You Both Die";
         
     //if one player's health reaches 0 or less they are the  LOSER  
-    }else if(playerOneHealth<1){
-        result = playerTwoName + " WINS!!!"
-    }else if(playerTwoHealth<1){
-        result = playerOneName + " WINS!!!"
+    }else if(playerOne[1]<1){
+        result = playerTwo[0] + " WINS!!!"
+    }else if(playerTwo[1]<1){
+        result = playerOne[0] + " WINS!!!"
     };
     
     //returns results to fight function
