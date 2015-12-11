@@ -28,17 +28,19 @@ var round = 0;
 
 //Replace the alerts with code that access the DOM(HTML) such as getElemetById and/or querySelector
 /*fight function loops through each round and reduces players health based on a randomly generated number*/
+    var start = document.querySelector('.buttonblue');
+    console.log('Fight Button: ', start);
+    start.addEventListener('click', fight);
+
+    var roundNum = document.getElementById('round_number');
+    console.log('Round Number: ', roundNum);
 
 function fight(){
-    alert(playerOne.name + ":" + playerOne.health + " *START* " + playerTwo.name + ":" +     playerTwo.health);
 
-        //loops the function until 10 rounds
 
-     var start = docuument.getElementByClass('buttonblue');
-    console.log(start);
-    start.addEventListener('click', calc)
 
-    var calc = function(){
+
+    //var play = function(){
         
         //formula to get a min damage for player 1 and player 2
         var minDamage1 = playerOne.damage * .5;
@@ -67,15 +69,17 @@ function fight(){
 
 //Shows change in health Fighter's name and health at the top
        bar[0].innerHTML = 'Spiderman: ' + playerOne.health ;
-       bar[1].innerHTML = playerTwo.health ;
+       bar[1].innerHTML = 'Batman: ' + playerTwo.health ;
+
+       roundNum.innerHTML = " *ROUND " + round + " OVER* ";
        alert(playerOne.name + ":" + playerOne.health + " *ROUND " + round + " OVER* " +  playerTwo.name + ":" +     playerTwo.health);
    }else{
        
        //if there is a winner or tie displays results
-       alert(results);
-       
+       results;
+
      };
-   };
+  // };
 };
 
     
