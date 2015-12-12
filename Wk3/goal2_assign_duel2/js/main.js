@@ -24,7 +24,7 @@ var fighters = [playerOne, playerTwo];
 
 
 //Rounds
-var round = -1;
+var round = 0;
 
 //Replace the alerts with code that access the DOM(HTML) such as getElemetById and/or querySelector
     //capture location of score bar
@@ -45,14 +45,15 @@ var round = -1;
     //Shows beginning stats
     spiderHealth.innerHTML = fighters[0].name +': ' + playerOne.health ;
     batHealth.innerHTML = fighters[1].name +': ' + playerTwo.health ;
+    roundNum.innerHTML = " Let's Fight! ";
 
 
 
     function fight(){
     console.log(playerOne.name + ":" + playerOne.health + " *START* " + playerTwo.name + ":" +     playerTwo.health);
-
-    spiderHealth.innerHTML = playerOne.name + ":" + playerOne.health;
-    batHealth.innerHTML = playerTwo.name + ":" + playerTwo.health;
+    //updates health
+    spiderHealth.innerHTML = playerOne.name + ": " + playerOne.health;
+    batHealth.innerHTML = playerTwo.name + ": " + playerTwo.health;
 
     //formula to get a min damage for player 1 and player 2
             var minDamage1 = playerOne.damage * .5;
@@ -70,10 +71,13 @@ var round = -1;
             //pulls results from the winnerCheck function
             var results = winnerCheck();
 
+            //round is incremented
+            round++;
+
             if (results === "no winner"){
 
-                //round is incremented
-                round++;
+                spiderHealth.innerHTML = playerOne.name + ": " + playerOne.health;
+                batHealth.innerHTML = playerTwo.name + ": " + playerTwo.health;
 
                 //alerts player the score after each round
 
@@ -83,9 +87,14 @@ var round = -1;
                 //if there is a winner or tie displays results
                 roundNum.innerHTML = results;
 
-            };
+                //Disable button
+                start.removeEventListener("click", fight, false);
 
-        };
+                start.innerHTML = "Done!!";
+            }
+
+        }
+
 
 
 //Checks for a winner after every round
@@ -94,21 +103,24 @@ var round = -1;
 
             //if both players health becomes 0 or less there is a TIE
                 if (playerOne.health < 1 && playerTwo.health <1 ){
+                    spiderHealth.innerHTML = playerOne.name + ": 0";
+                    batHealth.innerHTML = playerTwo.name + ": 0" ;
                     result = "You Both Die";
 
                     //if one player's health reaches 0 or less they are the  LOSER
                 }else if(playerOne.health<1){
+                    spiderHealth.innerHTML = playerOne.name + ": 0";
+                    batHealth.innerHTML = playerTwo.name +': ' +playerTwo.health;
                     result = playerTwo.name + " WINS!!!"
                 }else if(playerTwo.health<1){
+                    spiderHealth.innerHTML = playerOne.name +': '+ playerOne.health;
+                    batHealth.innerHTML = playerTwo.name + ": 0";
                     result = playerOne.name + " WINS!!!"
                 };
 
                 //returns results to fight function
                 return result;
             };
-
-            // Begins program
-                    fight();
 
 
 //end self executing function
