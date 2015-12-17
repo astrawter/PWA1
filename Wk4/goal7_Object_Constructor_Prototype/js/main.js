@@ -70,14 +70,39 @@ var button = document.querySelector('.buttonblue');
  */
 
 var Blog = function(str,date){
-        console.log(this);
+        //console.log(this);
         this.body = str;
         this.date = date;
 
-        console.log('str is equal to: ' + str);
-        console.log('this.body is equal to: '+ this.body);
-        console.log('this.date is equal to: '+ this.date);
-    };
+        //console.log('str is equal to: ' + str);
+        //console.log('this.body is equal to: '+ this.body);
+        //console.log('this.date is equal to: '+ this.date);
+
+
+
+
+};//shows where to write the blog to
+
+
+   Blog.prototype.companyName =  "Full Sail";
+   Blog.prototype.toHTML = function(entry){
+       console.log('entry:' + entry);
+       var blogHTML = "";
+
+       blogHTML += entry ? "<p style='background-color:#EEEEEE'>": "<p>";
+
+       blogHTML += "<strong>" +
+           (this.date.getMonth()+1) + "/"+
+           this.date.getDate() + "/" +
+           this.date.getFullYear() +
+           "</strong><br />" +
+           this.body +"</p>";
+       return blogHTML;
+   };
+   Blog.prototype.toString = function() {
+
+           console.log("[" + (this.date.getMonth()+1) + "/"+ this.date.getDate() + "/" + this.date.getFullYear() + "] : " + this.body);
+   }
     // array of blog items
     // each blog item will use the Blog constructor as its template to create each
     //    object
@@ -94,11 +119,22 @@ var Blog = function(str,date){
 
 button.onclick = showBody;
 
-    function showBody(e){
+    function showBody(e) {
         var i = 0,
             blogText = "";
+        while (i < blog.length) {
+            blogText += blog[i].toHTML(i % 2 === 0);
+            blog[i].toString();
+            i++;
+        }
+        console.log(blog[2].companyName);
+        document.getElementById("blog").innerHTML = blogText;
+        e.preventDefault();
+        return false;
+    }
+
 //goes through the items entered in blog
-        while(i < blog.length){
+/*        while(i < blog.length){
             if ( i % 2 === 0){//add color to everyother one
                 blogText += "<p style='background-color:#EEEEEE'>"
             }else{//no style
@@ -112,6 +148,6 @@ button.onclick = showBody;
         document.getElementById("blog").innerHTML= blogText;
         e.preventDefault();
         return false;
-    }
+    }*/
 
 })();  // end wrapper
