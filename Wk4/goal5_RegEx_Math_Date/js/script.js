@@ -13,7 +13,7 @@ console.log('------------ Goal 4 RECAP! -------------------');
 	==============================================================
 	
 	1. Objects
-	2. Intro to DOM
+	2. Intro to DOMf
 	3. Events & Callbacks
 
 	http://www.quirksmode.org/dom/w3c_css.html
@@ -46,17 +46,21 @@ console.log('------ Objects ----------');
 // very basic objects
 //{KEY : Value} pairings,
 person = {'name':'bond', 'age':35, 'secretAgent':true};
-
-// STUDENT - how would you write the above with the KEY not being a
-//      string?
-
+console.log(person);
+// STUDENT - how would you write the above with the KEY not being a string?
+person2 = {
+	name: 'bond',
+	age: 35,
+	secretAgent: true
+};
+	console.log(person2);
 
 // nested object
 person = {birthday:{month:02, day:12}, name:'bond'};   //setter
 
 
 //STUDENT - how would you console.log the birthday month in dot notation?
-
+	console.log("Birthday month: " + person.birthday.month);
 
 // Object within an object, Arrays, Function
 var thatGuy = {
@@ -64,7 +68,7 @@ var thatGuy = {
 	course: 'PWA1',
 	address: {
 		num: 3300,
-		street: 'University',
+		street: 'University St.',
 		city: 'Orlando',
 		cornerOf: ['University', 'Semoran']
 	},
@@ -74,12 +78,12 @@ var thatGuy = {
 	}
 };
 
-//STUDENT - How would you invoke the "showMyAddress" function using dot
-//      syntax?
-
+//STUDENT - How would you invoke the "showMyAddress" function using dot syntax?
+thatGuy.showMyAddress();
+	console.log(thatGuy.showMyAddress);
 
 //STUDENT - console.log the street address and city using dot notation.
-
+	console.log(thatGuy.address.street +", "+ thatGuy.address.city);
 
 // below is an object that contains an array of objects
 var obj1 = {
@@ -96,7 +100,7 @@ var obj1 = {
 
 //STUDENT - how would you get the length of the students array?
 
-
+	console.log(obj1.students.length);
 /*
 	==============================================================
 	THE DOM:
@@ -131,10 +135,9 @@ console.log('------------ Document Object Model (DOM) -------------------');
 
 
 
-//STUDENT - using the console.log above, how would you include ALL the 'li'
-//      for the id #nav?
+//STUDENT - using the console.log above, how would you include ALL the 'li' for the id #nav?
 
-
+	console.log(document.querySelectorAll('li'));
 
 /*
 	==================================================================
@@ -179,6 +182,10 @@ console.log('------------ DOM - Manipulating Attributes -------------------');
 
 //STUDENT - how would I set the attribute? change the href to google.com?
 
+document.querySelector('#nav').childNodes[1].firstChild.setAttribute('href','https://www.google.com');
+	console.log(document.querySelector('#nav').childNodes[1]);
+
+
 
 /*
 	==================================================================
@@ -216,7 +223,8 @@ console.log('------------ DOM - Manipulating CSS -------------------');
 
 var navLinks = document.querySelectorAll('#nav a');
 
-
+	console.log(navLinks);
+	navLinks[0].innerHTML = 'Google';
 
 
 /*
@@ -259,13 +267,14 @@ console.log('------------ DOM Events -------------------');
 
 
 //	END Goal 4 RECAP --------------------------------
-	
 
 /*
 	==================================================================
 	Regular Expressions
 	------------------------------------------------------------------
 	// Review the slides for Regular Expressions which is the same info as the below
+
+	Regular Expressions use ' / '  to enclose the pattern
 
 	Example Pattern:
 	Date: 	/^(?:(?:(?:0?[13578]|1[02])(\/|-|\.)31)\1|(?:(?:0?[13-9]|1[0-2])(\/|-|\.)(?:29|30)\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:0?2(\/|-|\.)29\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:(?:0?[1-9])|(?:1[0-2]))(\/|-|\.)(?:0?[1-9]|1\d|2[0-8])\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/
@@ -284,52 +293,67 @@ console.log('------------ DOM Events -------------------');
 
 
 	// RegEx examples
-	/^javascript/  				matches “javascript rules”, but not “i love javascript”
-	/javascript$/  				matches “i love javascript” , but not “javascript rules”
-	/^javascript$/  			matches only “javascript” and nothing else.
-	/yea+h/  					matches “yeah”, “yeaaaah”.. but not “yeh” it would need /yea*h/
-	/yea?h/   					matches “yeah” and “yeh”.. but not “yeaaaah”
-	/javascript|JavaScript/   	matches “javascript” or “JavaScript”
+	/^javascript/  				matches “javascript rules”, but not “i love javascript” it must start the string
+	/javascript$/  				matches “i love javascript” , but not “javascript rules” must end the string
+	/^javascript$/  			matches only “javascript” and nothing else. must start and end the string
+	/yea+h/  					matches “yeah”, “yeaaaah”.. but not “yeh” it would need /yea*h/ there has to be more 1 or more a's
+	/yea?h/   					matches “yeah” and “yeh”.. but not “yeaaaah”  match only 0 or 1 time its optional
+    /yea*h/						matches 0 or more times
+	/javascript|JavaScript/   	matches “javascript” or “JavaScript” either or
 
 
 	// special RegEx rules
 	(..)	 	- round brackets define a group of characters that must occur together
+				-Has to happen at the same time to be true
 				- after the closing bracket, you can then apply modifiers such as * + or ?
 	[..]	 	square brackets define a character class - a character class matches any one 
-					character inside the brackets - most common to use are:
+					character inside the brackets - most common to use are:  any of the characters at least once
 	[aqz]		match one occurrence of “a”, “q”, or “z”, the same as (a|q|z)
 	[a-z]		would match any lower case letter
 	[A-Z]		would match any upper case letter
 	[a-zA-Z]	would match any letter
 	[^..]		any one character not between the brackets - [^a-zA-Z]  would match any non-letter
+
+any character not inbetween  the brackets caret must be inside [^A-Z]
+
+/[Jj]ava[Ss]cript/ - matches javascript, JavaScript, javaScript, Javascript
+/^(Java)?Scripts$/ - will only match JavaScript or Script but cannot repeat Java more than 1 time
+/^[a-zA-Z\^\-\.]+$/
  */
 
 console.log('------------ Regular Expressions -------------------');
+// var varName = /pattern/;
+//var varName = new RegExp("pattern");
+//var newVar = new RegExp(varName);
+
+	//var phone = /^[2-9]\d{2}-\d{3}-\d{4}$/;
+
+	//var /javacript/;  //gets a string that contains the word
 
 /******************************************************************************
 STUDENT ACTIVITY
 
 	1.  Write a RegEx for a basic name (containing only letters)
 
-		Answer: 
+		Answer: /^[a-z]*$/gim
 
 	2.  What are the possible answers for this: /[Jj]ava[Ss]cript/
 
-		Answer: 
+		Answer: javascript, JavaScript, javaScript, Javascript
 
 	3. 	What are the possible answers for this: /^(Java)?Script$/
 
-		Answer: 
+		Answer: JavaScript or Script
 
 	4. 	Describe the possible answer for this: /^[a-zA-Z\^\-\.]+$/
 
-		Answer: 
+		Answer: Only letters
 
 	5.	Combining character sets can create sequences of matches.
 		
 		Describe the possible answers for this: /^[a-zA-Z]+[0-9]$/ 	
 
-		Answer: 
+		Answer: start1 or Start1 but not 1start
 
 ----------------------------------------------------------------------------- */
 
@@ -346,9 +370,16 @@ STUDENT ACTIVITY
 	split()		string.split.(RegExp): cuts a string into an array, making cuts at matches
 */
 
+	var emailRE = /(\w[-._\w]*\w@\w[-._\w]*\w\.\w{2,3})/;
+	var email = new RegExp(emailRE);
+	var str = "My email is jc@google.com but my work email is jc@job.com";
 
-
-
+	console.log("exec(): "+email.exec(str));
+	console.log("test(): "+email.test(str));
+	console.log("match(): "+str.match(email));
+	console.log("(how many space until the email starts?) search(): "+str.search(email));
+	console.log("(just replaces the first instance) replace(): "+str.replace(email,"jc@gmail.com"));
+	console.log("split(): "+str.split(email));
 
 
 /* 
@@ -388,7 +419,10 @@ STUDENT ACTIVITY
 		Answer: 
 	
 ----------------------------------------------------------------------------- */
-
+console.log("Format: (123) 456-7890 | 123-456-7890");
+	console.log("Answer: ");
+console.log("Format: (573)8841878 | 573-884-1234 | 573 234 1256");
+	console.log("Answer: ");
 
 /*	==================================================================
 	Math Methods
@@ -400,7 +434,17 @@ STUDENT ACTIVITY
 */
 
     console.log('------------ Math Methods -------------------');
-
+	var other= document.getElementById('otherbox');
+	//min on right of plus max on left (1-10)
+	other.innerHTML=Math.floor(Math.random()*10 +1);
+	/*
+	Math.floor();
+	Math.max(); //returns max number
+	Math.min(); //returns min number
+	Math.random(); //random decimal number between 0-1
+	Math.round(); //returns the value of a number rounded to the nearest integer.
+	Math.floor(); //returns the rounded downwards to the nearest interger.
+	 */
 
 
     /******************************************************************************
@@ -419,8 +463,14 @@ STUDENT ACTIVITY
 
     ****************************************************************************/
 
-
-
+console.log("1. Determine what the maximum and minimum number is for these numbers (100, 1000, 50, 2, 55, 75):");
+	var nums = [100, 1000, 50, 2, 55, 75];
+	console.log("min: " +Math.min(100, 1000, 50, 2, 55, 75)+ " max: " + Math.max(100, 1000, 50, 2, 55, 75));
+console.log(" 2. Produce a random number between 100 and 10,000:");
+	console.log(Math.floor(Math.random()* 10000 + 100));
+console.log("3. Produce a random number between 100 and 10, and round it to the nearestinteger. Console.log the random number before and after you round the number:");
+	var rand = Math.random()* 100 + 10;
+	console.log("before: "+rand+" after: "+Math.round(rand));
 
 /*	==================================================================
 	Date Methods
@@ -435,7 +485,16 @@ STUDENT ACTIVITY
 
     console.log('------------ Date Methods -------------------');
 
+console.log(new Date());
+	var d = new Date();
+	console.log(d.getDay());
+	console.log("date: "+ d.getMonth()+ "/"+d.getDate()+"/"+d.getFullYear());
+	console.log("time: "+d.getHours()+ ":"+d.getMinutes()+ ":"+d.getSeconds(), d.getMilliseconds());
 
-
+	setInterval( function(){e = new Date();
+	var eYear=e.setFullYear(2021,0,01);
+	document.getElementById("tagbox").innerHTML = e;
+	}, 1000)
+console.log(d.toLocaleDateString());
 
 })(); // end wrapper

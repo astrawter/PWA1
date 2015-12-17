@@ -6,7 +6,7 @@
 
 #playbox{background:#eee; border:#777 solid 10px; padding:20px; color:#333; margin:10px 0;}
 
-#tagbox{background:#eee; border:#f70 solid 10px; padding:20px; margin:10px 0;}
+#tagbox, #otherbox{background:#eee; border:#f70 solid 10px; padding:20px; margin:10px 0;}
 #tagbox span{background:#f70; color:white; padding:20px; display:block;}
 
 #nav{list-style:none; margin:10px 0; padding:20px; background:#555;}
