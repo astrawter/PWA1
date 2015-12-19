@@ -4,9 +4,12 @@
  * Goal: Goal7
  */
 //var names =[person1, person2, person3, person4, person5];
+var names =['Lexx', 'Zaria', 'Jose', 'Zaylee', 'Angel'];
 //var r = Math.floor(Math.random()* 5)  ramdomize a number 0-5
+var r = Math.floor(Math.random()* names.length);
 //var randPerson = names[r]; get a random name from the array
-
+var randPerson = names[r];
+console.log(randPerson);
 //Use for loop to create 3 instances of Person
     //send randPerson to instance
     // place the results in an array called people
